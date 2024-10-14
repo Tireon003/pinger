@@ -15,6 +15,10 @@ class Settings(BaseSettings):
         return (f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASS}@"
                 f"{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}")
 
+    @property
+    def api_domain(self):
+        return f"http://localhost:8228"
+
     model_config = SettingsConfigDict(
         env_file=".env"
     )
